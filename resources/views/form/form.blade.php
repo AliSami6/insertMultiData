@@ -45,24 +45,36 @@
                                             <div class="box-body">
                                                 <table style="width: 100%;border:dotted 1px #365d9d;" border="1" id="my_table" class="my_table">
                                                         <tr>
-
-                                                            <th><a href="javascript:void(0)"class="btn btn-success addRow">+</a></th>
-                                                            <th style="width: 200px;">ID</th>
+                                                            <th class="text-center" style="width: 100px;"><a href="javascript:void(0)"class="btn btn-success addRow"><i class="fa fa-plus"style="font-size:13px;"></i></a></th>
+                                                            <th>ID</th>
                                                             <th>Name</th>
+                                                            <th>Details</th>
                                                             <th>Birth</th>
                                                             <th>Age</th>
                                                             <th>Blood Group</th>
                                                             <th class="text-center" style="width: 100px;">Yes</th>
                                                             <th class="text-center" style="width: 120px;">No</th>
+                                                            <th class="text-center" style="width: 120px;">Action</th>
                                                         </tr>
                                                         @foreach ($data as $item)
                                                             <tr>
                                                                 <td>
-                                                                {{ $item->no_id}}
-                                                                <input type="hidden" name="no_id[]" value="{{ $item->no_id }}">
+                                                                    {{ $item->no_id}}
+                                                                    <input type="hidden" name="no_id[]" value="{{ $item->no_id }}">
                                                                 </td>
+
+                                                                <td>
+                                                                    <input type="text" name="name[]" class="form-control" >
+                                                                </td>
+
                                                                 <td>
                                                                 <input type="text" name="description[]" class="form-control" value="{{ $item->description }}">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="birth[]" class="form-control" >
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="age[]" class="form-control" >
                                                                 </td>
                                                                 <td align="center">
                                                                 <label class="form-label">
@@ -74,7 +86,9 @@
                                                                     <input type="checkbox" id="status_checkbox" class="{{ $item->no_id }}" name="status_checkbox[]" value="no" required> <span class="label-text"> </span>
                                                                 </label>
                                                                 </td>
-                                                                <th><a href="javascript:void(0)"class="btn btn-danger">-</a></th>
+                                                                <td>
+                                                                    <th><a href="javascript:void(0)"class="btn btn-danger deleteRow"><i class="fa fa-remove"></i></a></th>
+                                                                </td>
                                                             </tr>
                                                         @endforeach
                                                     </table>
@@ -157,8 +171,8 @@
         });
     </script>
     <script>
-        $('thead').on('click','addRow', function(){
-
+        $('thead').on('click','.addRow', function(){
+            var tr =
         });
     </script>
 @endsection
